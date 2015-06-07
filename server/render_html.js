@@ -15,7 +15,7 @@ export default async function renderHTML(req, res) {
       <HTMLDocument 
         title="hello mta"
         scripts={ ["/static/bundle.js"] }
-        css={ ["/static/styles.css"] }
+        css={ ["/static/reset.css"] }
         data={ { statuses } }>
         <App data={ { statuses } }/>
       </HTMLDocument>
