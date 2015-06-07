@@ -1,6 +1,14 @@
 "use strict"
 
 import React, { Component, PropTypes } from "react"
+import StyleSheet from "react-style"
+
+const styles = StyleSheet.create({
+  background: "#000",
+  color: "#fff",
+  fontFamily: "Helvetica",
+  fontSize: "62.5%"
+})
 
 class HTMLDocument extends Component {
 
@@ -26,7 +34,7 @@ class HTMLDocument extends Component {
           { css.map((href, k) => <link key={k} rel="stylesheet" href={href} />) }
         </head>
 
-        <body>
+        <body styles={ [styles] }>
           { children }
         </body>
 

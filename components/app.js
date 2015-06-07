@@ -1,6 +1,11 @@
 "use strict"
 
 import React, { Component, PropTypes } from "react"
+import StyleSheet from "react-style"
+
+const styles = StyleSheet.create`
+  display: flex;
+`
 
 export default class App extends Component {
   constructor(props) {
@@ -30,7 +35,7 @@ export default class App extends Component {
     })
 
     return (
-      <div>{ statuses }</div>
+      <div styles={[styles]}>{ statuses }</div>
     )
   }
 }
