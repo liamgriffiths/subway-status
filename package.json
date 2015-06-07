@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "browserify client.js -o bundle.js",
-    "start-server": "babel-node --stage 0 server/server",
-    "watch-server": "nodemon --exec babel-node --stage 0 server/server"
+    "build-client": "mkdir -p static && browserify client/client.js -o static/bundle.js",
+    "watch-client": "mkdir -p static && watchify client/client.js -o static/bundle.js",
+    "start-server": "babel-node server/server",
+    "watch-server": "nodemon --exec babel-node server/server"
   },
   "keywords": [
     "mta",
@@ -20,7 +21,7 @@
   "license": "MIT",
   "browserify": {
     "transform": [
-      "babelify"
+      ["babelify"]
     ]
   },
   "devDependencies": {
