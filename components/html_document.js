@@ -28,10 +28,10 @@ class HTMLDocument extends Component {
 
         <body>
           { children }
-
-          <script dangerouslySetInnerHTML={{ __html: bootstrap }} />
-          { scripts.map((src, k) => <script key={k} src={src} />) }
         </body>
+
+        <script dangerouslySetInnerHTML={{ __html: bootstrap }} />
+        { scripts.map((src, k) => <script key={k} src={src} />) }
       </html>
     )
   }
