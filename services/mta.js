@@ -10,8 +10,8 @@ class MTA {
     return MTA._instance
   }
 
-  static API_ENDPOINT = "http://web.mta.info/status/serviceStatus.txt"
-  static API_REQUEST_TIMEOUT = 666
+  static STATUSES_ENDPOINT = "http://web.mta.info/status/serviceStatus.txt"
+  static REQUEST_TIMEOUT = 666
 
   static parseServiceStatusXML(xml) {
     // todo: clean up
@@ -31,7 +31,7 @@ class MTA {
   // [ { name, status, text, data, time } ... ]
   // todo: add caching? time-since-last-request?
   async getServiceStatus() {
-    let res = await get(MTA.API_ENDPOINT).timeout(MTA.API_REQUEST_TIMEOUT)
+    let res = await get(MTA.STATUSES_ENDPOINT).timeout(MTA.REQUEST_TIMEOUT)
     let xml = res.text
     let parsed = MTA.parseServiceStatusXML(xml)
     return parsed
