@@ -5,8 +5,6 @@ import { get } from "../utils/request"
 
 class MTA {
 
-  static _instance = undefined
-
   static getInstance() {
     if (!MTA._instance) MTA._instance = new MTA()
     return MTA._instance
