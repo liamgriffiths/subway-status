@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-client": "mkdir -p static && browserify client/client.js -o static/bundle.js",
-    "watch-client": "mkdir -p static && watchify client/client.js -o static/bundle.js",
+    "build-client": "mkdir -p static && browserify client/client.js -o static/bundle.js --verbose",
+    "watch-client": "mkdir -p static && watchify client/client.js -o static/bundle.js --verbose",
     "start-server": "babel-node server/server",
     "watch-server": "nodemon --exec babel-node server/server"
   },
@@ -21,7 +21,9 @@
   "license": "MIT",
   "browserify": {
     "transform": [
-      ["babelify"]
+      [
+        "babelify"
+      ]
     ]
   },
   "devDependencies": {
@@ -31,6 +33,7 @@
   "dependencies": {
     "babel": "^5.5.4",
     "bluebird": "^2.9.27",
+    "envify": "^3.4.0",
     "express": "^4.12.4",
     "react": "^0.13.3",
     "react-style": "^0.5.5",
