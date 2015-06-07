@@ -17,9 +17,11 @@ export default class StatusList extends Component {
   }
 
   render() {
+    const { statuses } = this.props
+
     return (
       <ul styles={ [styles.list] }>
-        { this.props.statuses.map(status => <Status status={ status } />) }
+        { statuses.map((status, k) => <Status key={ k } status={ status } />) }
       </ul>
     )
   }

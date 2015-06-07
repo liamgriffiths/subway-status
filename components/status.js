@@ -86,8 +86,12 @@ export default class Status extends Component {
     const formattedStatus = Status.formatStatus(status)
     const formattedNames = Status.formatNames(name)
 
-    const circleTrains = formattedNames.map(name => {
-      return <span styles={ [styles.train, styles.colors[name]]}>{ name }</span>
+    const circleTrains = formattedNames.map((name, k) => {
+      return (
+        <span key={ k } styles={ [styles.train, styles.colors[name]]}>
+          { name }
+        </span>
+      )
     })
 
     return (
