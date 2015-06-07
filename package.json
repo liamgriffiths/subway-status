@@ -5,16 +5,23 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "babel-node server/server",
-    "build": "browserify client.js -o bundle.js"
+    "build": "browserify client.js -o bundle.js",
+    "start-server": "babel-node --stage 0 server/server",
+    "watch-server": "nodemon --exec babel-node --stage 0 server/server"
   },
   "keywords": [
-    "mta", "subways", "es6", "react", "demo"
+    "mta",
+    "subways",
+    "es6",
+    "react",
+    "demo"
   ],
   "author": "liamgriffiths <liamgriffiths@gmail.com>",
   "license": "MIT",
   "browserify": {
-    "transform": [ "babelify" ]
+    "transform": [
+      "babelify"
+    ]
   },
   "devDependencies": {
     "babelify": "^6.1.2",
@@ -25,6 +32,7 @@
     "bluebird": "^2.9.27",
     "express": "^4.12.4",
     "react": "^0.13.3",
+    "react-style": "^0.5.5",
     "superagent": "^1.2.0",
     "xml-parser": "^1.2.1"
   }
