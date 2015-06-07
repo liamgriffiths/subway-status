@@ -2,10 +2,12 @@
 
 import React, { Component, PropTypes } from "react"
 import StyleSheet from "react-style"
+import StatusList from "./status_list"
 
-const styles = StyleSheet.create`
-  display: flex;
-`
+const styles = StyleSheet.create({
+  app: {
+  }
+})
 
 export default class App extends Component {
   constructor(props) {
@@ -19,23 +21,13 @@ export default class App extends Component {
   static defaultProps = {
   }
 
-  renderStatus(status) {
-    return (
-      <li>
-        <code>
-          {status}
-        </code>
-      </li>
-    )
-  }
-
   render() {
-    let statuses = this.props.data.statuses.map(({ name, status }) => {
-      return <pre>{`${name}: ${status}`}</pre>
-    })
+    const { statuses } = this.props.data
 
     return (
-      <div styles={[styles]}>{ statuses }</div>
+      <div styles={ [styles.app] }>
+        <StatusList statuses={ statuses } />
+      </div>
     )
   }
 }
