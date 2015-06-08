@@ -20,7 +20,7 @@
   "author": "liamgriffiths <liamgriffiths@gmail.com>",
   "license": "MIT",
   "browserify": {
-    "verbose": true
+    "verbose": true,
     "transform": [
       [
         "babelify"
