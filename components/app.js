@@ -27,9 +27,13 @@ export default class App extends Component {
 
   async autoRefresh() {
     while (this._isMounted) {
-      await Promise.delay(this.props.refreshRate)
-      const statuses = await api.getServiceStatus()
-      this.setState({ statuses })
+      try {
+        await Promise.delay(this.props.refreshRate)
+        const statuses = await api.getServiceStatus()
+        this.setState({ statuses })
+      } catch(err) {
+        console.error(err)
+      }
     }
   }
 

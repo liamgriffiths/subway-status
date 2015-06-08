@@ -13,7 +13,8 @@ class API {
   static REQUEST_TIMEOUT = 666
 
   async getServiceStatus() {
-    return await get(API.STATUSES_ENDPOINT).timeout(API.REQUEST_TIMEOUT)
+    const res = await get(API.STATUSES_ENDPOINT).timeout(API.REQUEST_TIMEOUT)
+    return res.body
   }
 }
 
