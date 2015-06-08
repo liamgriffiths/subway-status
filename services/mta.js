@@ -28,7 +28,7 @@ class MTA {
   }
 
   // returns something like:
-  // [ { name, status, text, data, time } ... ]
+  // [ { name, status, text, date, time } ... ]
   // todo: add caching? time-since-last-request?
   async getServiceStatus() {
     let res = await get(MTA.STATUSES_ENDPOINT).timeout(MTA.REQUEST_TIMEOUT)
