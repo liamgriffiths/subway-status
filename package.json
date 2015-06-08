@@ -4,7 +4,7 @@
   "description": "ooh aah",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run build-client && npm run start-server",
     "build-client": "mkdir -p static && browserify client/client.js -o static/bundle.js --verbose",
     "watch-client": "mkdir -p static && watchify client/client.js -o static/bundle.js --verbose",
     "start-server": "babel-node server/server",
