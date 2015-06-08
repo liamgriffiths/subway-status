@@ -2,20 +2,20 @@
 
 A little demo of a way to organize an isomorphic react app.
 
-## todo
+### todo
 
 * [ ] fullscreen modal component to show status details
 * [ ] error pages (5xx, 4xx)
 * [ ] caching for data requests, document rendering
 * [ ] assert versioning, cdn-ifying
 
-### setup
+## setup
 
 ```
 $ npm install
 ```
 
-### run locally
+## run locally
 
 ```
 $ npm start
