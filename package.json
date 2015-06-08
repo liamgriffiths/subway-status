@@ -2,7 +2,7 @@
   "name": "react-es6-subways",
   "version": "1.0.0",
   "description": "ooh aah",
-  "main": "index.js",
+  "repository": "git@github.com:liamgriffiths/subway-status.git",
   "scripts": {
     "start": "npm run build-client && npm run start-server",
     "build-client": "static && browserify client/client.js -o static/bundle.js",
