@@ -44,7 +44,7 @@ export default class App extends Component {
   }
 
   render() {
-    const { statuses } = this.props.data
+    const { statuses } = this.state
     return <StatusList statuses={ statuses } />
   }
 }
