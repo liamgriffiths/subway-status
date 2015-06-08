@@ -41,6 +41,7 @@ export default class Status extends Component {
   static getStatusText(status) {
     return status
       .toLowerCase()
+      .trim()
       .split(/\s+/)
       .map(word => word.charAt(0).toUpperCase() + word.slice(1))
       .join(" ")

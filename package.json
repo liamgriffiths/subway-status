@@ -4,6 +4,7 @@
   "description": "i just wanted to use all the nice things",
   "repository": "git@github.com:liamgriffiths/subway-status.git",
   "scripts": {
+    "test": "mocha --reporter spec --compilers js:babel/register test/*",
     "start": "npm run build-client && npm run start-server",
     "build-client": "browserify client/client.js -o static/bundle.js",
     "watch-client": "watchify client/client.js -o static/bundle.js",
@@ -41,5 +42,8 @@
     "superagent": "^1.2.0",
     "uglifyify": "^3.0.1",
     "xml-parser": "^1.2.1"
+  },
+  "devDependencies": {
+    "mocha": "^2.2.5"
   }
 }
