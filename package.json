@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run build-client && npm run start-server",
-    "build-client": "static && browserify client/client.js -o static/bundle.js --verbose",
-    "watch-client": "watchify client/client.js -o static/bundle.js --verbose",
+    "build-client": "static && browserify client/client.js -o static/bundle.js",
+    "watch-client": "watchify client/client.js -o static/bundle.js",
     "start-server": "babel-node server/server",
     "watch-server": "nodemon --exec babel-node server/server"
   },
@@ -20,6 +20,7 @@
   "author": "liamgriffiths <liamgriffiths@gmail.com>",
   "license": "MIT",
   "browserify": {
+    "verbose": true
     "transform": [
       [
         "babelify"
