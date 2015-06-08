@@ -25,9 +25,9 @@ export default class App extends Component {
     refreshRate: TEN_SECONDS
   }
 
-  async autoRefresh(refreshRate) {
+  async autoRefresh() {
     while (this._isMounted) {
-      await Promise.delay(refreshRate)
+      await Promise.delay(this.props.refreshRate)
       const statuses = await api.getServiceStatus()
       this.setState({ statuses })
     }
@@ -36,7 +36,7 @@ export default class App extends Component {
   componentDidMount() {
     // note: a little hacky because React.Component does not use isMounted
     this._isMounted = true
-    this.autoRefresh(this.props.refreshRate)
+    this.autoRefresh()
   }
 
   componentWillUnmount() {
