@@ -5,7 +5,7 @@
   "repository": "git@github.com:liamgriffiths/subway-status.git",
   "scripts": {
     "start": "npm run start-server",
-    "build-client": "browserify -g uglifyify client/client.js -o static/bundle.js",
+    "build-client": "browserify client/client.js -o static/bundle.js",
     "watch-client": "watchify client/client.js -o static/bundle.js",
     "start-server": "babel-node server/server",
     "watch-server": "nodemon --exec babel-node server/server",
