@@ -5,7 +5,7 @@
   "repository": "git@github.com:liamgriffiths/subway-status.git",
   "scripts": {
     "start": "npm run build-client && npm run start-server",
-    "build-client": "browserify client/client.js -o static/bundle.js",
+    "build-client": "browserify -g uglifyify client/client.js -o static/bundle.js",
     "watch-client": "watchify client/client.js -o static/bundle.js",
     "start-server": "babel-node server/server",
     "watch-server": "nodemon --exec babel-node server/server"
@@ -28,15 +28,16 @@
     ]
   },
   "dependencies": {
-    "babelify": "^6.1.2",
-    "browserify": "^10.2.4",
     "babel": "^5.5.4",
+    "babelify": "^6.1.2",
     "bluebird": "^2.9.27",
+    "browserify": "^10.2.4",
     "envify": "^3.4.0",
     "express": "^4.12.4",
     "react": "^0.13.3",
     "react-style": "^0.5.5",
     "superagent": "^1.2.0",
+    "uglifyify": "^3.0.1",
     "xml-parser": "^1.2.1"
   }
 }
