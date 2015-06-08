@@ -1,6 +1,6 @@
 "use strict"
 
-// todo: is there a better "isomorphic" request lib?
+// todo: is there a better "isomorphic" request lib than superagent?
 import request from "superagent"
 import Promise from "bluebird"
 
@@ -16,5 +16,6 @@ export const get = (url) => {
           reject(new Error(res.text))
         }
       }
+    })
   })
 }
