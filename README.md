@@ -1,21 +1,21 @@
-# react-es7-isomorphic subway app demo
+# Demo "react-es7-isomorphic" subway statuses app
 
-A little demo of a way to organize an isomorphic react app.
+A demo of a way to organize an isomorphic react app.
 
-### todo
+### Todo
 
-* [ ] fullscreen modal component to show status details
-* [ ] error pages (5xx, 4xx)
-* [ ] caching for data requests, document rendering
-* [ ] assert versioning, cdn-ifying
+* [ ] Fullscreen modal component to show status details
+* [ ] Error pages (5xx, 4xx)
+* [ ] Caching for data requests, document rendering
+* [ ] Asset versioning, cdn-ifying
 
-## setup
+## Setup
 
 ```
 $ npm install
 ```
 
-## run locally
+## Run locally
 
 ```
 $ npm start
