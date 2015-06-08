@@ -25,13 +25,13 @@ class HTMLDocument extends Component {
 
   render() {
     const { children, title, scripts, css, data } = this.props
-    const bootstrap = `window.DATA=${JSON.stringify(data)};`
+    const bootstrap = `window.DATA = ${JSON.stringify(data)};`
 
     return (
       <html>
         <head>
           <title>{ title }</title>
-          { css.map((href, k) => <link key={k} rel="stylesheet" href={href} />) }
+          { css.map((href, k) => <link key={ k } rel="stylesheet" href={ href } />) }
         </head>
 
         <body styles={ [styles] }>
@@ -39,7 +39,7 @@ class HTMLDocument extends Component {
         </body>
 
         <script dangerouslySetInnerHTML={{ __html: bootstrap }} />
-        { scripts.map((src, k) => <script key={k} src={src} />) }
+        { scripts.map((src, k) => <script key={ k } src={ src } />) }
       </html>
     )
   }
