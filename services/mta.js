@@ -34,7 +34,10 @@ class MTA {
     let res = await get(MTA.STATUSES_ENDPOINT).timeout(MTA.REQUEST_TIMEOUT)
     let xml = res.text
     let parsed = MTA.parseServiceStatusXML(xml)
-    return parsed
+
+    // note: filter out staten island rail for now :P
+    let filtered = parsed.filter(item => item.name !== "SIR")
+    return filtered
   }
 }
 

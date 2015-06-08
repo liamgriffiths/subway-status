@@ -3,6 +3,7 @@
 
 import React, { Component, PropTypes } from "react"
 import StyleSheet from "react-style"
+import { LINE_COLORS } from "../config/constants"
 
 const styles = StyleSheet.create({
   li: {
@@ -18,7 +19,6 @@ const styles = StyleSheet.create({
   },
 
   train: {
-    background: "goldenrod",
     fontSize: "3rem",
     width: "4rem",
     height: "4rem",
@@ -27,49 +27,16 @@ const styles = StyleSheet.create({
     fontWeight: 600,
     borderRadius: "50%",
     textAlign: "center"
-  },
-
-  colors: {
-    L: { background: "silver" },
-    S: { background: "silver" },
-
-    G: { background: "green" },
-
-    1: { background: "red" },
-    2: { background: "red" },
-    3: { background: "red" },
-
-    N: { background: "yellow" },
-    Q: { background: "yellow" },
-    R: { background: "yellow" },
-
-    4: { background: "green" },
-    5: { background: "green" },
-    6: { background: "green" },
-
-    J: { background: "brown" },
-    Z: { background: "brown" },
-
-    B: { background: "orange" },
-    D: { background: "orange" },
-    F: { background: "orange" },
-    M: { background: "orange" },
-
-    7: { background: "purple" },
-
-    A: { background: "blue" },
-    C: { background: "blue" },
-    E: { background: "blue" }
   }
-
 })
+
 
 export default class Status extends Component {
   static propTypes = {
     status: PropTypes.object.isRequired
   }
 
-  static formatStatus(status) {
+  static getStatusText(status) {
     return status
       .toLowerCase()
       .split(/\s+/)
@@ -77,29 +44,33 @@ export default class Status extends Component {
       .join(" ")
   }
 
-  static formatNames(names) {
+  static getLineNames(names) {
     return names.split("")
+  }
+
+  static getLineColor(name) {
+    return LINE_COLORS[name]
+  }
+
+  static renderLineSymbols(names) {
+    const lineNames = Status.getLineNames(names)
+    return lineNames.map((name, k) => {
+      const color = { background: Status.getLineColor(name) }
+      return <span key={ k } styles={ [styles.train, color] }>{ name }</span>
+    })
   }
 
   render() {
     const { status, name } = this.props.status
-    const formattedStatus = Status.formatStatus(status)
-    const formattedNames = Status.formatNames(name)
-
-    const circleTrains = formattedNames.map((name, k) => {
-      return (
-        <span key={ k } styles={ [styles.train, styles.colors[name]]}>
-          { name }
-        </span>
-      )
-    })
+    const statusText = Status.getStatusText(status)
+    const lineSymbols = Status.renderLineSymbols(name)
 
     return (
       <li styles={ [styles.li] }>
-        { circleTrains }
+        { lineSymbols }
 
         <span styles={ [styles.status ] }>
-          { formattedStatus }
+          { statusText }
         </span>
       </li>
     )

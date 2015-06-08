@@ -34,7 +34,7 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    // NOTE: a little hacky because React.Component does not use isMounted
+    // note: a little hacky because React.Component does not use isMounted
     this._isMounted = true
     this.autoRefresh(this.props.refreshRate)
   }
