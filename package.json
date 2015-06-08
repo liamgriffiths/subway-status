@@ -27,11 +27,9 @@
       ]
     ]
   },
-  "devDependencies": {
-    "babelify": "^6.1.2",
-    "browserify": "^10.2.4"
-  },
   "dependencies": {
+    "babelify": "^6.1.2",
+    "browserify": "^10.2.4",
     "babel": "^5.5.4",
     "bluebird": "^2.9.27",
     "envify": "^3.4.0",
