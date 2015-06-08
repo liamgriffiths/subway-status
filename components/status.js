@@ -3,13 +3,15 @@
 
 import React, { Component, PropTypes } from "react"
 import StyleSheet from "react-style"
+import Modal from "./modal"
 import { LINE_COLORS } from "../config/constants"
 
 const styles = StyleSheet.create({
   li: {
     flex: 1,
     padding: "1rem",
-    margin: "1rem 0rem"
+    margin: "1rem 0rem",
+    cursor: "pointer"
   },
 
   status: {
@@ -18,7 +20,7 @@ const styles = StyleSheet.create({
     margin: "0rem 1rem"
   },
 
-  train: {
+  circle: {
     fontSize: "3rem",
     width: "4rem",
     height: "4rem",
@@ -56,7 +58,7 @@ export default class Status extends Component {
     const lineNames = Status.getLineNames(names)
     return lineNames.map((name, k) => {
       const color = { background: Status.getLineColor(name) }
-      return <span key={ k } styles={ [styles.train, color] }>{ name }</span>
+      return <span key={ k } styles={ [styles.circle, color] }>{ name }</span>
     })
   }
 
@@ -68,7 +70,6 @@ export default class Status extends Component {
     return (
       <li styles={ [styles.li] }>
         { lineSymbols }
-
         <span styles={ [styles.status ] }>
           { statusText }
         </span>
