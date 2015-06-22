@@ -17,6 +17,6 @@ export const ROUTES = {
 
 export const IS_PRODUCTION = process.env.NODE_ENV === "production"
 
-export const CDN_PRODUCTION_URL = "//dup3ue92f0m33.cloudfront.net/production"
+export const CDN_PRODUCTION_URL = "//dup3ue92f0m33.cloudfront.net"
 export const S3_PRODUCTION_URL = "//subway-statuses.s3.amazonaws.com/production"
 export const DEV_ASSETS_PATH = "/static"
