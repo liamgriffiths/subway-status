@@ -3,7 +3,6 @@
 // inspired by: https://github.com/Khan/react-components/blob/master/js/layered-component-mixin.jsx
 
 import React, { Component, PropTypes } from "react"
-import StyleSheet from "react-style"
 
 const styles = StyleSheet.create({
   modal: {

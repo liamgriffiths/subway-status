@@ -2,7 +2,6 @@
 
 import React, { Component, PropTypes } from "react"
 import Promise from "bluebird"
-import StyleSheet from "react-style"
 import StatusList from "./status_list"
 import API from "../client/api"
 
