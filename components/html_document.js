@@ -1,9 +1,9 @@
 "use strict"
 
 import React, { Component, PropTypes } from "react"
+import { getAssetPath } from "../utils/assets"
 
 class HTMLDocument extends Component {
-
   static propTypes = {
     title: PropTypes.string,
     scripts: PropTypes.array,
@@ -23,7 +23,7 @@ class HTMLDocument extends Component {
       <html>
         <head>
           <title>{ title }</title>
-          { css.map((href, k) => <link key={ k } rel="stylesheet" href={ href } />) }
+          { css.map((href, k) => <link key={ k } rel="stylesheet" href={ getAssetPath(href) } />) }
         </head>
 
         <body>
@@ -31,7 +31,7 @@ class HTMLDocument extends Component {
         </body>
 
         <script dangerouslySetInnerHTML={{ __html: bootstrap }} />
-        { scripts.map((src, k) => <script key={ k } src={ src } />) }
+        { scripts.map((src, k) => <script key={ k } src={ getAssetPath(src) } />) }
       </html>
     )
   }
