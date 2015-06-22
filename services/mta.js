@@ -3,7 +3,7 @@
 import parse from "xml-parser"
 import { get } from "../utils/request"
 
-class MTA {
+export default class MTA {
 
   static STATUSES_ENDPOINT = "http://web.mta.info/status/serviceStatus.txt"
   static REQUEST_TIMEOUT = 666
@@ -35,5 +35,3 @@ class MTA {
     return filtered
   }
 }
-
-export default MTA

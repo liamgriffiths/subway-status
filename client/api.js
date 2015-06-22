@@ -1,16 +1,14 @@
 "use strict"
 
 import { get } from "../utils/request"
+import { ROUTES } from "../config/constants"
 
-class API {
+export default class API {
 
-  static STATUSES_ENDPOINT = "/statuses.json"
   static REQUEST_TIMEOUT = 666
 
   static async getServiceStatus() {
-    const res = await get(API.STATUSES_ENDPOINT).timeout(API.REQUEST_TIMEOUT)
+    const res = await get(ROUTES.API.STATUSES).timeout(API.REQUEST_TIMEOUT)
     return res.body
   }
 }
-
-export default API
