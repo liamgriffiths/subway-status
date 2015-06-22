@@ -7,6 +7,7 @@ export default async function renderJSON(req, res) {
     const statuses = await MTA.getServiceStatus()
     res.set("Content-Type", "application/json").send(statuses)
   } catch(err) {
+    console.error(err)
     res.status(500).send(err.stack)
   }
 }

@@ -7,12 +7,14 @@
     "test": "mocha --reporter spec --compilers js:babel/register test/*",
     "start": "babel-node server/server",
     "postinstall": "npm run build",
-    "build-js": "browserify client/client.js -o static/bundle.js",
-    "build-css": "lessc css/main.less > static/bundle.css",
+    "build-js": "browserify client/client.js | uglifyjs -c > static/bundle.js",
+    "build-css": "lessc --compress css/main.less > static/bundle.css",
     "build": "mkdir -p static && echo build-js build-css | xargs -n1 -P4 npm run",
     "watch-js": "watchify client/client.js -o static/bundle.js -v",
     "watch-css": "catw -c 'lessc -' 'css/main.less' -o static/bundle.css -v",
-    "watch": "mkdir -p static && echo watch-js watch-css | xargs -n1 -P4 npm run"
+    "watch": "mkdir -p static && echo watch-js watch-css | xargs -n1 -P4 npm run",
+    "version-statics": "echo create asset-map",
+    "upload-assets": "echo upload to cdn"
   },
   "keywords": [
     "mta",
@@ -44,6 +46,7 @@
     "less": "^2.5.1",
     "react": "0.13.3",
     "superagent": "1.2.0",
+    "uglify": "^0.1.5",
     "xml-parser": "1.2.1"
   },
   "devDependencies": {

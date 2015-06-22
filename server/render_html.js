@@ -25,6 +25,7 @@ export default async function renderHTML(req, res) {
     res.send(doctype + html)
 
   } catch(err) {
+    console.error(err)
     res.status(500).send(err.stack)
   }
 }
