@@ -8,14 +8,14 @@
     "start": "babel-node server/server",
     "postinstall": "if [ \"$NODE_ENV\" = \"production\" ]; then npm run build && npm run upload:production; fi",
     "clean": "rm -rf static",
-    "build:js": "browserify client/client.js | uglifyjs -c > static/bundle.js",
-    "build:css": "lessc --compress css/main.less > static/bundle.css",
+    "build:js": "browserify client/client.js | uglifyjs -c | gzip -9 - -c > static/bundle.js",
+    "build:css": "lessc --compress css/main.less | gzip -9 - -c > static/bundle.css",
     "build": "npm run clean && mkdir -p static && echo build:js build:css | xargs -n1 -P4 npm run && npm run asset-map",
     "watch:js": "watchify client/client.js -o static/bundle.js -v",
     "watch:css": "catw -c 'lessc -' 'css/main.less' -o static/bundle.css -v",
     "watch": "mkdir -p static && echo watch:js watch:css | xargs -n1 -P4 npm run",
     "asset-map": "hashmark -l 10 'static/*' 'static/{name}.{hash}{ext}' --asset-map static/assets.json",
-    "upload:production": "s3-cli --acl-public sync ./static s3://subway-statuses/production/static"
+    "upload:production": "s3-cli --acl-public --add-header='Content-Encoding: gzip' sync ./static s3://subway-statuses/production/static"
   },
   "keywords": [
     "mta",
