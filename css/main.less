@@ -1,0 +1,42 @@
+@import (inline) "./css/reset.css";
+@import "./css/line_colors.less";
+
+body {
+  background: #222;
+  color: #fff;
+  font-family: 'Helvetica Neue', Helvetica, Arial;
+  font-size: 62.5%;
+}
+
+
+ul.status-list {
+  display: flex;
+  flex-direction: column;
+  margin: 2.4rem auto;
+  width: 750px;
+
+  li {
+    flex: 1;
+    cursor: pointer;
+    margin-bottom: 1.2rem;
+
+    .circle {
+      display: inline-block;
+      font-size: 3.3rem;
+      line-height: 5rem;
+      width: 5rem;
+      height: 5rem;
+      margin-right: 0.6rem;
+      font-weight: 600;
+      border-radius: 50%;
+      text-align: center
+    }
+
+    .status-text {
+      font-size: 3.3rem;
+      font-weight: 400;
+    }
+  }
+}
+
+

@@ -2,35 +2,7 @@
 "use strict"
 
 import React, { Component, PropTypes } from "react"
-import StyleSheet from "react-style"
 import Modal from "./modal"
-import { LINE_COLORS } from "../config/constants"
-
-const styles = StyleSheet.create({
-  li: {
-    flex: 1,
-    cursor: "pointer",
-    marginBottom: "1.2rem"
-  },
-
-  status: {
-    fontSize: "3.3rem",
-    fontWeight: 400,
-  },
-
-  circle: {
-    display: "inline-block",
-    fontSize: "3.3rem",
-    lineHeight: "5rem",
-    width: "5rem",
-    height: "5rem",
-    marginRight: "0.6rem",
-    fontWeight: 600,
-    borderRadius: "50%",
-    textAlign: "center"
-  }
-})
-
 
 export default class Status extends Component {
   static propTypes = {
@@ -50,15 +22,10 @@ export default class Status extends Component {
     return names.split("")
   }
 
-  static getLineColor(name) {
-    return LINE_COLORS[name]
-  }
-
   static renderLineSymbols(names) {
     const lineNames = Status.getLineNames(names)
     return lineNames.map((name, k) => {
-      const color = { background: Status.getLineColor(name) }
-      return <span key={ k } styles={ [styles.circle, color] }>{ name }</span>
+      return <span key={ k } className={`circle line-${name}`}>{ name }</span>
     })
   }
 
@@ -68,9 +35,9 @@ export default class Status extends Component {
     const lineSymbols = Status.renderLineSymbols(name)
 
     return (
-      <li styles={ [styles.li] }>
+      <li>
         { lineSymbols }
-        <span styles={ [styles.status ] }>
+        <span className="status-text">
           { statusText }
         </span>
       </li>

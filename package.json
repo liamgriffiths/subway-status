@@ -6,12 +6,13 @@
   "scripts": {
     "test": "mocha --reporter spec --compilers js:babel/register test/*",
     "start": "babel-node server/server",
-    "postinstall": "npm run build-client",
-    "build-client": "browserify client/client.js -o static/bundle.js",
-    "watch-client": "watchify client/client.js -o static/bundle.js --verbose",
-    "build-css": "echo build css",
-    "watch-css": "echo watch css",
-    "watch": "echo watch-client watch-css | xargs -n1 -P2 npm run"
+    "postinstall": "npm run build",
+    "build-js": "browserify client/client.js -o static/bundle.js",
+    "build-css": "catw -c 'lessc -' 'style/*.less' > static/bundle.css",
+    "build": "npm run build-js && npm run build-css",
+    "watch-js": "watchify client/client.js -o static/bundle.js -v",
+    "watch-css": "catw -c 'lessc -' 'css/*.less' -o static/bundle.css -v",
+    "watch": "npm run watch-js && npm run watch-css"
   },
   "keywords": [
     "mta",
@@ -37,10 +38,11 @@
     "babelify": "6.1.2",
     "bluebird": "2.9.27",
     "browserify": "10.2.4",
+    "catw": "^1.0.1",
     "envify": "3.4.0",
     "express": "4.12.4",
+    "less": "^2.5.1",
     "react": "0.13.3",
-    "react-style": "0.5.5",
     "superagent": "1.2.0",
     "uglifyify": "3.0.1",
     "xml-parser": "1.2.1"
