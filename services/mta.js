@@ -5,11 +5,6 @@ import { get } from "../utils/request"
 
 class MTA {
 
-  static getInstance() {
-    if (!MTA._instance) MTA._instance = new MTA()
-    return MTA._instance
-  }
-
   static STATUSES_ENDPOINT = "http://web.mta.info/status/serviceStatus.txt"
   static REQUEST_TIMEOUT = 666
 
@@ -30,13 +25,13 @@ class MTA {
   // returns something like:
   // [ { name, status, text, date, time } ... ]
   // todo: add caching? time-since-last-request?
-  async getServiceStatus() {
-    let res = await get(MTA.STATUSES_ENDPOINT).timeout(MTA.REQUEST_TIMEOUT)
-    let xml = res.text
-    let parsed = MTA.parseServiceStatusXML(xml)
+  static async getServiceStatus() {
+    const res = await get(MTA.STATUSES_ENDPOINT).timeout(MTA.REQUEST_TIMEOUT)
+    const xml = res.text
+    const parsed = MTA.parseServiceStatusXML(xml)
 
     // note: filter out staten island rail for now :P
-    let filtered = parsed.filter(item => item.name !== "SIR")
+    const filtered = parsed.filter(item => item.name !== "SIR")
     return filtered
   }
 }

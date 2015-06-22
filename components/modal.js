@@ -4,11 +4,6 @@
 
 import React, { Component, PropTypes } from "react"
 
-const styles = StyleSheet.create({
-  modal: {
-  }
-})
-
 export default class Modal {
   constructor(element) {
     this._appendToDocument()

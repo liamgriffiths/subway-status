@@ -8,7 +8,7 @@ import MTA from "../services/mta"
 export default async function renderHTML(req, res) {
 
   try {
-    const statuses = await MTA.getInstance().getServiceStatus()
+    const statuses = await MTA.getServiceStatus()
 
     const doctype = "<!DOCTYPE html>"
     const html = React.renderToStaticMarkup(

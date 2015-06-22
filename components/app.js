@@ -6,7 +6,6 @@ import StatusList from "./status_list"
 import API from "../client/api"
 
 const TEN_SECONDS = 10 * 1000
-const api = API.getInstance()
 
 export default class App extends Component {
   constructor(props) {
@@ -28,7 +27,7 @@ export default class App extends Component {
     while (this._isMounted) {
       try {
         await Promise.delay(this.props.refreshRate)
-        const statuses = await api.getServiceStatus()
+        const statuses = await API.getServiceStatus()
         this.setState({ statuses })
       } catch(err) {
         console.error(err)
