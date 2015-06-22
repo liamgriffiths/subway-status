@@ -5,11 +5,13 @@
   "repository": "git@github.com:liamgriffiths/subway-status.git",
   "scripts": {
     "test": "mocha --reporter spec --compilers js:babel/register test/*",
-    "start": "npm run build-client && npm run start-server",
+    "start": "babel-node server/server",
+    "postinstall": "npm run build-client",
     "build-client": "browserify client/client.js -o static/bundle.js",
-    "watch-client": "watchify client/client.js -o static/bundle.js",
-    "start-server": "babel-node server/server",
-    "watch-server": "nodemon --exec babel-node server/server"
+    "watch-client": "watchify client/client.js -o static/bundle.js --verbose",
+    "build-css": "echo build css",
+    "watch-css": "echo watch css",
+    "watch": "echo watch-client watch-css | xargs -n1 -P2 npm run"
   },
   "keywords": [
     "mta",
