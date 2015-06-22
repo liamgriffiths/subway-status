@@ -1,26 +1,26 @@
 "use strict"
 
-// helper to replace the original descriptor with our own
-const makeDecorator = (fn) => (...args) => (target, name, descriptor) => {
-  descriptor.value = fn(descriptor.value, ...args)
-  return descriptor
-}
-
-export const _cachable = (fn, ttl) => {
+// function that returns a decorator function, replaces the decorated function
+// `descriptor.value` with our own that implements caching functionality
+export const cacheable = (ttl) => (target, name, descriptor) => {
+  const fn = descriptor.value
   let lastCalled = 0;
   let cache;
 
-  return (...args) => {
+  descriptor.value = (...args) => {
     const now = +new Date()
     const timePassed = now - lastCalled
 
     if (timePassed > ttl || !lastCalled) {
+      // console.log(`[cacheable: ${name}] REFRESHED!`)
       cache = fn(...args)
       lastCalled = now
+    } else {
+      // console.log(`[cacheable: ${name}] HIT!`)
     }
 
     return cache
   }
-}
 
-export const cacheable = makeDecorator(_cachable)
+  return descriptor
+}
