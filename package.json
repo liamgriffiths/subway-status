@@ -14,8 +14,8 @@
     "watch:js": "watchify client/client.js -o static/bundle.js -v",
     "watch:css": "catw -c 'lessc -' 'css/main.less' -o static/bundle.css -v",
     "watch": "mkdir -p static && echo watch:js watch:css | xargs -n1 -P4 npm run",
-    "asset-map": "hashmark -l 10 'static/*' '{name}.{hash}{ext}' --asset-map static/assets.json",
-    "upload:production": "s3-cli --acl-public sync ./static s3://subway-statuses/production"
+    "asset-map": "hashmark -l 10 'static/*' 'static/{name}.{hash}{ext}' --asset-map static/assets.json",
+    "upload:production": "s3-cli --acl-public sync ./static s3://subway-statuses/production/static"
   },
   "keywords": [
     "mta",
