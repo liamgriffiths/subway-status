@@ -8,11 +8,11 @@
     "start": "babel-node server/server",
     "postinstall": "npm run build",
     "build-js": "browserify client/client.js -o static/bundle.js",
-    "build-css": "catw -c 'lessc -' 'style/*.less' > static/bundle.css",
-    "build": "npm run build-js && npm run build-css",
+    "build-css": "lessc css/main.less > static/bundle.css",
+    "build": "mkdir -p static && echo build-js build-css | xargs -n1 -P4 npm run",
     "watch-js": "watchify client/client.js -o static/bundle.js -v",
-    "watch-css": "catw -c 'lessc -' 'css/*.less' -o static/bundle.css -v",
-    "watch": "npm run watch-js && npm run watch-css"
+    "watch-css": "catw -c 'lessc -' 'css/main.less' -o static/bundle.css -v",
+    "watch": "mkdir -p static && echo watch-js watch-css | xargs -n1 -P4 npm run"
   },
   "keywords": [
     "mta",
@@ -44,7 +44,6 @@
     "less": "^2.5.1",
     "react": "0.13.3",
     "superagent": "1.2.0",
-    "uglifyify": "3.0.1",
     "xml-parser": "1.2.1"
   },
   "devDependencies": {
