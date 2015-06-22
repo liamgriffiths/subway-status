@@ -1,24 +1,17 @@
-# Demo "react-es7-isomorphic" subway statuses app
+# NYC Subway Statuses
 
-A demo of a way to organize an isomorphic react app.
-
-### Todo
-
-* [ ] Fullscreen modal component to show status details
-* [ ] Error pages (5xx, 4xx)
-* [ ] Caching for data requests, document rendering
-* [ ] Asset versioning, cdn-ifying
-* [ ] Make it look good on a mobile browser
-* [ ] Build target for iOS using `react-native`
+A demo of a way to organize an isomorphic react app. Build using all the nice
+things in React and Babel.
 
 ## Setup
 
-```
+```bash
 $ npm install
+$ npm run build
 ```
 
 ## Run locally
 
-```
+```bash
 $ npm start
 ```
