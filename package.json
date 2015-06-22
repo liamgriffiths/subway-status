@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha --reporter spec --compilers js:babel/register test/*",
     "start": "babel-node server/server",
-    "postinstall": "npm run build",
+    "postinstall": "([[ $NODE_ENV == 'production' ]] && npm run build && npm run upload:production) || exit 0",
     "clean": "rm -rf static",
     "build:js": "browserify client/client.js | uglifyjs -c > static/bundle.js",
     "build:css": "lessc --compress css/main.less > static/bundle.css",
@@ -15,7 +15,7 @@
     "watch:css": "catw -c 'lessc -' 'css/main.less' -o static/bundle.css -v",
     "watch": "mkdir -p static && echo watch:js watch:css | xargs -n1 -P4 npm run",
     "asset-map": "hashmark -l 10 'static/*' 'static/{name}.{hash}{ext}' --asset-map static/assets.json",
-    "upload:production": "echo upload to cdn"
+    "upload:production": "s3-cli --acl-public sync ./static s3://subway-statuses/production"
   },
   "keywords": [
     "mta",
@@ -47,6 +47,7 @@
     "hashmark": "^3.0.0",
     "less": "^2.5.1",
     "react": "0.13.3",
+    "s3-cli": "^0.12.0",
     "superagent": "1.2.0",
     "uglify-js": "2.4.23",
     "xml-parser": "1.2.1"
