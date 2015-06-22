@@ -9,23 +9,23 @@ import { LINE_COLORS } from "../config/constants"
 const styles = StyleSheet.create({
   li: {
     flex: 1,
-    padding: "1rem",
-    margin: "1rem 0rem",
-    cursor: "pointer"
+    cursor: "pointer",
+    margin: "0.3rem"
   },
 
   status: {
-    fontSize: "3rem",
-    fontWeight: 600,
-    margin: "0rem 1rem"
+    fontSize: "3.3rem",
+    fontWeight: 400,
+    margin: "0rem 0.3rem"
   },
 
   circle: {
-    fontSize: "3rem",
-    width: "4rem",
-    height: "4rem",
-    padding: "1rem 1.8rem",
-    margin: "0.2rem",
+    display: "inline-block",
+    fontSize: "3.3rem",
+    lineHeight: "5rem",
+    width: "5rem",
+    height: "5rem",
+    margin: "0.3rem",
     fontWeight: 600,
     borderRadius: "50%",
     textAlign: "center"

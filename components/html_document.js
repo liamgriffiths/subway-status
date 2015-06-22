@@ -4,7 +4,7 @@ import React, { Component, PropTypes } from "react"
 import StyleSheet from "react-style"
 
 const styles = StyleSheet.create({
-  background: "#000",
+  background: "#222",
   color: "#fff",
   fontFamily: "Helvetica",
   fontSize: "62.5%"
