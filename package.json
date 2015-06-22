@@ -31,17 +31,17 @@
     ]
   },
   "dependencies": {
-    "babel": "^5.5.4",
-    "babelify": "^6.1.2",
-    "bluebird": "^2.9.27",
-    "browserify": "^10.2.4",
-    "envify": "^3.4.0",
-    "express": "^4.12.4",
-    "react": "^0.13.3",
-    "react-style": "^0.5.5",
-    "superagent": "^1.2.0",
-    "uglifyify": "^3.0.1",
-    "xml-parser": "^1.2.1"
+    "babel": "5.5.4",
+    "babelify": "6.1.2",
+    "bluebird": "2.9.27",
+    "browserify": "10.2.4",
+    "envify": "3.4.0",
+    "express": "4.12.4",
+    "react": "0.13.3",
+    "react-style": "0.5.5",
+    "superagent": "1.2.0",
+    "uglifyify": "3.0.1",
+    "xml-parser": "1.2.1"
   },
   "devDependencies": {
     "mocha": "^2.2.5"
