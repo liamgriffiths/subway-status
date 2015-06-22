@@ -1,10 +1,8 @@
 "use strict"
 
-import { IS_PRODUCTION, ASSET_MAP_FILE } from "../config/constants"
+import { IS_PRODUCTION, ASSET_MAP_FILE, S3_PRODUCTION_URL, DEV_ASSETS_PATH } from "../config/constants"
 
 const assetMap = IS_PRODUCTION ? require(ASSET_MAP_FILE) : {}
-const LOCAL_URL = "/"
-const CDN_URL = "/"
 
 export const getAssetPath = (asset) =>
-  IS_PRODUCTION ? `${CDN_URL}${assetMap[asset]}` : `${LOCAL_URL}${asset}`
+  IS_PRODUCTION ? `${S3_PRODUCTION_URL}/${assetMap[asset]}` : `${DEV_ASSETS_PATH}/${asset}`
