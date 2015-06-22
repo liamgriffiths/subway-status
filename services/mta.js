@@ -2,6 +2,9 @@
 
 import parse from "xml-parser"
 import { get } from "../utils/request"
+import { cacheable } from "../utils/decorators"
+
+const THIRTY_SECONDS = 30 * 1000
 
 export default class MTA {
 
@@ -24,7 +27,7 @@ export default class MTA {
 
   // returns something like:
   // [ { name, status, text, date, time } ... ]
-  // todo: add caching? time-since-last-request?
+  @cacheable(THIRTY_SECONDS)
   static async getServiceStatus() {
     const res = await get(MTA.STATUSES_ENDPOINT).timeout(MTA.REQUEST_TIMEOUT)
     const xml = res.text
