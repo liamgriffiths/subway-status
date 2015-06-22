@@ -7,7 +7,9 @@ import Status from "./status"
 const styles = StyleSheet.create({
   list: {
     display: "flex",
-    flexDirection: "column"
+    flexDirection: "column",
+    margin: "2.4rem auto",
+    width: "750px"
   }
 })
 

@@ -6,7 +6,7 @@ import StyleSheet from "react-style"
 const styles = StyleSheet.create({
   background: "#222",
   color: "#fff",
-  fontFamily: "Helvetica",
+  fontFamily: "'Helvetica Neue', Helvetica, Arial",
   fontSize: "62.5%"
 })
 

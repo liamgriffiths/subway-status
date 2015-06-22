@@ -10,13 +10,12 @@ const styles = StyleSheet.create({
   li: {
     flex: 1,
     cursor: "pointer",
-    margin: "0.3rem"
+    marginBottom: "1.2rem"
   },
 
   status: {
     fontSize: "3.3rem",
     fontWeight: 400,
-    margin: "0rem 0.3rem"
   },
 
   circle: {
@@ -25,7 +24,7 @@ const styles = StyleSheet.create({
     lineHeight: "5rem",
     width: "5rem",
     height: "5rem",
-    margin: "0.3rem",
+    marginRight: "0.6rem",
     fontWeight: 600,
     borderRadius: "50%",
     textAlign: "center"
