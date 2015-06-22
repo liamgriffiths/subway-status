@@ -48,7 +48,7 @@
     "less": "^2.5.1",
     "react": "0.13.3",
     "superagent": "1.2.0",
-    "uglify": "^0.1.5",
+    "uglify-js": "2.4.23",
     "xml-parser": "1.2.1"
   },
   "devDependencies": {
