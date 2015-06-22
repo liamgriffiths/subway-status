@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha --reporter spec --compilers js:babel/register test/*",
     "start": "babel-node server/server",
-    "postinstall": "([ \"$NODE_ENV\" == production ]   && npm run build && npm run upload:production) || exit 0",
+    "postinstall": "if [ \"$NODE_ENV\" == \"production\" ]; then npm run build && npm run upload:production; fi",
     "clean": "rm -rf static",
     "build:js": "browserify client/client.js | uglifyjs -c > static/bundle.js",
     "build:css": "lessc --compress css/main.less > static/bundle.css",
