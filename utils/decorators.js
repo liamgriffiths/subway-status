@@ -12,11 +12,8 @@ export const cacheable = (ttl) => (target, name, descriptor) => {
     const timePassed = now - lastCalled
 
     if (timePassed > ttl || !lastCalled) {
-      // console.log(`[cacheable: ${name}] REFRESHED!`)
       cache = fn(...args)
       lastCalled = now
-    } else {
-      // console.log(`[cacheable: ${name}] HIT!`)
     }
 
     return cache
